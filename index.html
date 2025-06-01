@@ -1,112 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Portada</title>
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    body {
-      animation: fondo 20s infinite alternate;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: white;
-    }
-
-    @keyframes fondo {
-      0% {
-        background-color: white;
-      }
-
-      50% {
-        background-color: #004d4d;
-      }
-
-      100% {
-        background-color: black;
-      }
-    }
-
-    /* Bordes degradados cercanos a los márgenes (~35px) */
-    .borde-inverso {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      background:
-        linear-gradient(to top, rgba(255, 255, 255, 0.3) 35px, transparent 80px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 35px, transparent 80px),
-        linear-gradient(to left, rgba(255, 255, 255, 0.3) 35px, transparent 80px),
-        linear-gradient(to right, rgba(255, 255, 255, 0.3) 35px, transparent 80px);
-      animation: borde 20s infinite alternate;
-      mix-blend-mode: difference;
-    }
-
-    @keyframes borde {
-      0% {
-        background:
-          linear-gradient(to top, rgba(0, 0, 0, 0.3) 35px, transparent 80px),
-          linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 35px, transparent 80px),
-          linear-gradient(to left, rgba(0, 0, 0, 0.3) 35px, transparent 80px),
-          linear-gradient(to right, rgba(0, 0, 0, 0.3) 35px, transparent 80px);
-      }
-
-      50% {
-        background:
-          linear-gradient(to top, rgba(255, 255, 255, 0.2) 35px, transparent 80px),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 35px, transparent 80px),
-          linear-gradient(to left, rgba(255, 255, 255, 0.2) 35px, transparent 80px),
-          linear-gradient(to right, rgba(255, 255, 255, 0.2) 35px, transparent 80px);
-      }
-
-      100% {
-        background:
-          linear-gradient(to top, rgba(255, 255, 255, 0.4) 35px, transparent 80px),
-          linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 35px, transparent 80px),
-          linear-gradient(to left, rgba(255, 255, 255, 0.4) 35px, transparent 80px),
-          linear-gradient(to right, rgba(255, 255, 255, 0.4) 35px, transparent 80px);
-      }
-    }
-
-    .titulo {
-      font-family: courier;
-      font-size: 4vw;
-      font-weight: normal;
-      color: white;
-      /* base blanca, para que el mix-blend funcione */
-      mix-blend-mode: difference;
-      z-index: 2;
-    }
-
-    @media (max-width: 600px) {
-      .titulo {
-        font-size: 8vw;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>portada</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:,">
 </head>
-
-
 <body>
-  <div class="titulo">
-    <p>sutil metal</p>
-  </div>
-  <div class="borde-inverso"></div>
-  <p></p>
+
+  <!-- Menú superior -->
+  <header>
+    <nav>
+      <ul class="main-menu">
+        <li>
+          <a href="#">Proyectos</a>
+          <ul class="submenu">
+            <li><a href="/proyectos/instalaciones.html">Instalaciones</a></li>
+            <li><a href="/proyectos/mapping.html">Mapping</a></li>
+            <li><a href="/proyectos/videos.html">Videos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Sobre mí</a>
+          <ul class="submenu">
+            <li><a href="/about/formacion/index.html">Formación</a></li>
+            <li><a href="/about/talleres/index.html">Talleres</a></li>
+            <li><a href="/about/produccion/index.html">Producción</a></li>
+            <li><a href="/about/ponencias/index.html">Ponencias</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Las imágenes del snake se insertan dinámicamente vía JS -->
+
+  <!-- Scripts -->
+  <script src="projectsData.js"></script>
+  <script src="snake.js"></script>
+  
 </body>
-
 </html>
-
