@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arco Parlante</title>
+  <link rel="stylesheet" href="proyectos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+</head>
+<body>
+
+  <!-- Menú superior -->
+  <header>
+    <nav>
+      <ul class="main-menu">
+        <li>
+          <a href="#">Proyectos</a>
+          <ul class="submenu">
+            <li><a href="/proyectos/instalaciones.html">Instalaciones</a></li>
+            <li><a href="/proyectos/mapping.html">Mapping</a></li>
+            <li><a href="/proyectos/videos.html">Videos</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Sobre mí</a>
+          <ul class="submenu">
+            <li><a href="/about/formacion/index.html">Formación</a></li>
+            <li><a href="/about/talleres/index.html">Talleres</a></li>
+            <li><a href="/about/produccion/index.html">Producción</a></li>
+            <li><a href="/about/ponencias/index.html">Ponencias</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrusel tipo gif -->
+  <section class="hero">
+    <div class="slideshow">
+      <img src="proyectos/arcoparlante/_MG_4875.jpg" class="slide active" />
+      <img src="proyectos/arcoparlante/_MG_4876.jpg" class="slide" />
+      <img src="proyectos/arcoparlante/_MG_4904.jpg" class="slide" />
+      <img src="proyectos/arcoparlante/_MG_5013.jpg" class="slide" />
+    </div>
+  </section>
+
+  <!-- Texto -->
+  <section class="texto-descriptivo">
+    <div class="col titulo">
+      <h1>Arco Parlante</h1>
+    </div>
+    <div class="col texto">
+      <p>
+        Texto explicativo de la obra. Puede ocupar varios párrafos si querés. Esta parte se adapta al alto de la pantalla.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ficha técnica -->
+  <section class="ficha">
+    <div class="fila">
+      <div class="col etiqueta">Año</div>
+      <div class="col valor">2023</div>
+    </div>
+    <div class="fila">
+      <div class="col etiqueta">Materiales</div>
+      <div class="col valor">Resina, cables, video, motores</div>
+    </div>
+    <div class="fila">
+      <div class="col etiqueta">Formato</div>
+      <div class="col valor">Instalación medial</div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="galeria">
+    <img src="/proyectos/espectro/IMG_3504.JPG" alt="Imagen 1" onclick="abrir(this.src)" />
+    <img src="/proyectos/espectro/IMG_3514.JPG" alt="Imagen 2" onclick="abrir(this.src)" />
+    <img src="/proyectos/espectro/IMG_3518 2.JPG" alt="Imagen 3" onclick="abrir(this.src)" />
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+  <script>
+    // Slider automático tipo gif
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      function showNextSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }
+
+      setInterval(showNextSlide, 2000); // cambia cada 2 segundos
+    });
+
+    // Lightbox para galería
+    function abrir(src) {
+      basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+    }
+  </script>
+
+</body>
+</html>

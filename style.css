@@ -1,0 +1,82 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fondo y cuerpo */
+body {
+  overflow: hidden;
+    background: #1900ff00;
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  position: relative;
+}
+
+/* Menú superior */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+ 
+  z-index: 1000;
+  padding: 0.5em 1em;
+}
+
+nav ul.main-menu {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+}
+
+nav ul.main-menu > li {
+  position: relative;
+}
+
+nav ul.main-menu > li > a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5em 0;
+  display: block;
+}
+
+nav ul.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #000000;
+  padding: 0.5em 0;
+  list-style: none;
+  min-width: 150px;
+  z-index: 1001;
+}
+
+nav ul.submenu li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  display: block;
+}
+
+nav ul.main-menu > li:hover > ul.submenu {
+  display: block;
+}
+
+/* Imágenes snake */
+.snake-img {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 0; /* por debajo del menú */
+  transition: transform 0.1s linear;
+}
+
+.snake-img img {
+  border-radius: 2px;
+  pointer-events: none;
+  user-select: none;
+}
