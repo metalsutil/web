@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fantasia</title>
+  <title>Deshielo</title>
   <link rel="stylesheet" href="proyectos.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
@@ -32,24 +32,28 @@
   <!-- Carrusel tipo gif -->
   <section class="hero">
     <div class="slideshow">
-      <img src="proyectos/fantasia/_MG_5746.png" class="slide active" />
-      <img src="" class="slide" />
-      <img src="" class="slide" />
+      <img src="/proyectos/deshielo/1.jpg" class="slide active" />
+  <video autoplay muted loop playsinline class="slide active">
+    <source src="/proyectos/deshielo/pan1.mp4" type="video/mp4" />
+  </video>
     </div>
   </section>
+
+  
+<script src="https://player.vimeo.com/api/player.js"></script>
+
 
   <!-- Texto -->
   <section class="texto-descriptivo">
     <div class="col titulo">
-      <h1>Fantasía en plástico</h1>
+      <h1>Deshielo sintético</h1>
     </div>
     <div class="col texto">
       <p>
-Ficción de futuro:
+Instalación interactiva compuesta por un instrumento digital desarrollado en Max/MSP, donde una cámara web actúa como sensor visual. El sistema mapea geometrías modeladas en plástico termoformado, traduciendo su posición en el espacio en eventos sonoros que simulan el proceso de deshielo. Las zonas del campo visual han sido previamente asociadas a distintas capas de sonido derivadas de registros de hielo derritiéndose, generando una correspondencia entre forma, ubicación y sonoridad.
 
-Una piedra que se fusiona con circuitería y adquiere sensibilidad fotolumínica y se convierte en una criatura de características desconocidas, pero con un origen matérico definido: mineral
-
-La obra busca generar interrogantes sobre las materialidades y los objetos que nos rodean, cuestionando hasta qué punto pueden considerarse "vivos", y apelando al concepto de "materia viva".      </p>
+Las maquetas, elaboradas con plástico expuesto a altas temperaturas, remiten visualmente al derretimiento, pero en este caso materializan un proceso detenido. La acción principal es una espera: un tiempo suspendido donde se anticipa la transformación de los objetos. Sin embargo, al tratarse de un material no biodegradable, el deshielo nunca ocurre. La pieza trabaja esa fricción entre lo orgánico y lo sintético, entre el tiempo físico del derretimiento y el tiempo artificial de la simulación sonora.
+      </p>
     </div>
   </section>
 
@@ -57,36 +61,37 @@ La obra busca generar interrogantes sobre las materialidades y los objetos que n
   <section class="ficha">
     <div class="fila">
       <div class="col etiqueta">Año</div>
-      <div class="col valor">2024</div>
+      <div class="col valor">2023</div>
     </div>
     <div class="fila">
     <div class="col etiqueta">Materialidad cuerpo</div>
-    <div class="col valor">Difusores de policarbonato + guías de luz de polimetilmetacrilato + filtros polarizados</div>
-    </div>
-    <div class="fila">
-    <div class="col etiqueta">Materialidad piel</div>
-    <div class="col valor">video realizado con vqgan con una data set personalizada, interpolación de imagenes de valle, piedras, circuitería y maquinas industriales</div>
+    <div class="col valor">Cámara web, computador, plastico derretido</div>
     </div>
     <div class="fila">
     <div class="col etiqueta">Materialidad alma</div>
-    <div class="col valor">cableado alambre e cobre estañado + LDR's + servomotor + arduino</div>
+    <div class="col valor">Programación en MaxMSP</div>
     </div>
     <div class="fila">
         <div class="col etiqueta">Dimensiones</div>
-      <div class="col valor">medidas variables</div>
+      <div class="col valor">30x30x120 cm</div>
     </div>
     <div class="fila">
       <div class="col etiqueta">Formato</div>
-      <div class="col valor">Escultura medial</div>
+      <div class="col valor">Instalación Medial</div>
     </div>
   </section>
 
-  <!-- Galería -->
-  <section class="galeria">
-    <img src="proyectos/fantasia/_MG_5746.png" alt="Imagen 1" onclick="abrir(this.src)" />
-    <img src="/proyectos/espectro/IMG_3514.JPG" alt="Imagen 2" onclick="abrir(this.src)" />
-    <img src="/proyectos/espectro/IMG_3518 2.JPG" alt="Imagen 3" onclick="abrir(this.src)" />
-  </section>
+  <!-- Vimeo -->
+  <div style="padding:56.25% 0 0 0;position:relative;">
+  <iframe 
+    src="https://player.vimeo.com/video/1089518973?autoplay=1&muted=1&loop=1&background=1"
+    frameborder="0" 
+    allow="autoplay; fullscreen; picture-in-picture" 
+    allowfullscreen 
+    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+    title="deshielo sintético">
+  </iframe>
+</div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
