@@ -32,11 +32,11 @@
   <!-- Carrusel tipo gif -->
   <section class="hero">
     <div class="slideshow">
-      <img src="web/proyectos/deshielo/1.jpg" class="slide active" />
-  <video autoplay muted loop playsinline class="slide active">
-    <source src="web/proyectos/deshielo/pan1.mp4" type="video/mp4" />
-  </video>
-    </div>
+    <img src="./proyectos/deshielo/1.jpg" class="slide active" />
+    <video autoplay muted loop playsinline class="slide" style="display: none;">
+      <source src="./proyectos/deshielo/pan1.mp4" type="video/mp4" />
+    </video>
+  </div>
   </section>
 
   
@@ -103,9 +103,26 @@ Las maquetas, elaboradas con plástico expuesto a altas temperaturas, remiten vi
 
       function showNextSlide() {
         slides[index].classList.remove("active");
+        if (slides[index].tagName === "VIDEO") {
+          slides[index].style.display = "none";
+          slides[index].pause && slides[index].pause();
+        } else {
+          slides[index].style.display = "none";
+        }
         index = (index + 1) % slides.length;
         slides[index].classList.add("active");
+        slides[index].style.display = "";
+        if (slides[index].tagName === "VIDEO") {
+          slides[index].play && slides[index].play();
+        }
       }
+
+      // Inicializa el estado de las slides
+      slides.forEach((slide, i) => {
+        if (i !== 0) {
+          slide.style.display = "none";
+        }
+      });
 
       setInterval(showNextSlide, 2000); // cambia cada 2 segundos
     });
