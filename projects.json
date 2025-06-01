@@ -17,11 +17,31 @@
   },
   {
     "url": "#",
+    "img": "proyectos/chiuchiu/1.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/chiuchiu/2.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/chiuchiu/3.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/chiuchiu/chiuchiu.gif"
+  },
+  {
+    "url": "#",
     "img": "proyectos/deshielo/1.jpg"
   },
   {
     "url": "#",
     "img": "proyectos/dib/1.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/dib/img.png"
   },
   {
     "url": "#",
@@ -45,15 +65,19 @@
   },
   {
     "url": "#",
+    "img": "proyectos/espectro/ed.gif"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/fantasia/5F2B9FE9-2E37-40B2-B127-CEBD4B10E6A1.JPG"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/fantasia/9D18336D-3A95-4CDC-B114-E17EF46409A9.JPG"
+  },
+  {
+    "url": "#",
     "img": "proyectos/fantasia/expo.png"
-  },
-  {
-    "url": "#",
-    "img": "proyectos/li3/1.jpeg"
-  },
-  {
-    "url": "#",
-    "img": "proyectos/li3/2.jpeg"
   },
   {
     "url": "#",
@@ -81,10 +105,34 @@
   },
   {
     "url": "#",
-    "img": "proyectos/unlargo/1.jpeg"
+    "img": "proyectos/silbatos/silbatos.gif"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/silbatos/tecnologias.jpg"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/visuales/critical.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/visuales/critical1.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/visuales/critical2.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/visuales/critical3.png"
   },
   {
     "url": "#",
     "img": "proyectos/visuales/sim.png"
+  },
+  {
+    "url": "#",
+    "img": "proyectos/visuales/yo.png"
   }
 ]
