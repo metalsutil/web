@@ -1,0 +1,186 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* TIPOGRAFÍA Y CUERPO */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 60px;
+}
+
+/* ENCABEZADO Y MENÚ */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  padding: 1em 2em;
+  border-bottom: 1px solid #eee;
+}
+
+nav ul.main-menu {
+  display: flex;
+  list-style: none;
+  gap: 2em;
+}
+
+nav ul.main-menu > li > a {
+  text-decoration: none;
+  color: #111;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease-in-out;
+}
+
+nav ul.main-menu > li > a:hover {
+  color: #888;
+}
+
+/* HERO SLIDESHOW */
+.hero {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* TEXTO DESCRIPTIVO */
+.texto-descriptivo {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.texto-descriptivo h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.texto-descriptivo p {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* FICHA TÉCNICA */
+.ficha {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fila {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.etiqueta, .valor {
+  flex: 1 1 50%;
+  padding: 0.5rem 1rem;
+}
+
+.etiqueta {
+  font-weight: bold;
+  text-align: right;
+  color: #666;
+}
+
+.valor {
+  text-align: left;
+  color: #111;
+}
+
+/* GALERÍA DE MINIATURAS */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galeria img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.galeria img:hover {
+  opacity: 0.7;
+}
+
+/* MODAL PARA VER IMÁGENES GRANDES */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal.active {
+  display: flex;
+  cursor: zoom-out;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .texto-descriptivo h1 {
+    font-size: 2rem;
+  }
+
+  nav ul.main-menu {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  header {
+    padding: 1em;
+  }
+
+  .ficha, .texto-descriptivo {
+    padding: 2rem 1rem;
+  }
+}
