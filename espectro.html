@@ -1,52 +1,109 @@
-<!-- proyecto.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Título del Proyecto</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Espectro Derivas</title>
+  <link rel="stylesheet" href="proyectos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
 <body>
 
-  <!-- Sección 1: carrusel de imágenes fullscreen tipo gif -->
+  <!-- Menú superior -->
+  <header>
+    <nav>
+      <ul class="main-menu">
+        <li>
+          <a href="#">Proyectos</a>
+          <ul class="submenu">
+
+          </ul>
+        </li>
+        <li>
+          <a href="#">Sobre mí</a>
+          <ul class="submenu">
+ 
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrusel tipo gif -->
   <section class="hero">
     <div class="slideshow">
-      <img src="proyectos/XXX/1.jpg" class="slide active" />
-      <img src="proyectos/XXX/2.jpg" class="slide" />
-      <img src="proyectos/XXX/3.jpg" class="slide" />
+      <img src="/proyectos/espectro/IMG_3504.JPG" class="slide active" />
+      <img src="/proyectos/espectro/IMG_3514.JPG" class="slide" />
+      <img src="/proyectos/espectro/IMG_3518 2.JPG" class="slide" />
     </div>
   </section>
 
-  <!-- Sección 2: título + texto explicativo -->
+  <!-- Texto -->
   <section class="texto-descriptivo">
     <div class="col titulo">
       <h1>Espectro Derivas</h1>
     </div>
     <div class="col texto">
       <p>
-        Texto explicativo de la obra. Puede ocupar varios párrafos si querés. Esta parte se adapta al alto de la pantalla.
-      </p>
+Habitamos un mundo en constante cambio, donde los lugares de trabajo y la cotidianidad laboral han experimentado transformaciones profundas.
+
+Este proyecto se basa en la digitalización de ruinas industriales, lugares que una vez fueron el epicentro de la cotidianidad laboral.
+
+Hoy, cerca de un 70% de los trabajos en Chile pertenecen al sector de servicios al cliente, donde la espacialidad laboral ha sido despojada de lugares establecidos transformandose drásticamente.
+
+A través de la realidad aumentada, se pretende transformar lo registrado en criaturas tecnológicas.
+
+El proyecto hace una invitación a reflexionar sobre cómo el pasado, el presente y el futuro se entrelazan en un mundo en constante cambio.
+
+Como base las transformaciones en nuestra sociedad, la naturaleza efímera de la tecnología y la capacidad de las ficciones para dar forma a imaginarios de futuros posibles.      </p>
     </div>
   </section>
 
-  <!-- Sección 3: ficha técnica -->
+  <!-- Ficha técnica -->
   <section class="ficha">
     <div class="fila">
       <div class="col etiqueta">Año</div>
       <div class="col valor">2023</div>
     </div>
     <div class="fila">
-      <div class="col etiqueta">Materiales</div>
-      <div class="col valor">Resina, cables, video, motores</div>
+      <div class="col etiqueta">Materialidad</div>
+      <div class="col valor">Fotogrametría, nube de puntos</div>
     </div>
     <div class="fila">
       <div class="col etiqueta">Formato</div>
-      <div class="col valor">Instalación medial</div>
+      <div class="col valor">Realidad aumentada, repositorio web</div>
     </div>
-    <!-- podés agregar más filas -->
   </section>
 
-  <script src="carrusel.js"></script>
+  <!-- Galería -->
+  <section class="galeria">
+    <img src="/proyectos/espectro/IMG_3504.JPG" alt="Imagen 1" onclick="abrir(this.src)" />
+    <img src="/proyectos/espectro/IMG_3514.JPG" alt="Imagen 2" onclick="abrir(this.src)" />
+    <img src="/proyectos/espectro/IMG_3518 2.JPG" alt="Imagen 3" onclick="abrir(this.src)" />
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+  <script>
+    // Slider automático tipo gif
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      function showNextSlide() {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }
+
+      setInterval(showNextSlide, 2000); // cambia cada 2 segundos
+    });
+
+    // Lightbox para galería
+    function abrir(src) {
+      basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+    }
+  </script>
+
 </body>
 </html>
