@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
-const basePath = path.join(__dirname, "proyectos"); // Carpeta donde tienes tus carpetas de imágenes
+const basePath = path.join(__dirname, "proyectos");
 const output = [];
 
 function isImage(file) {
-  return /\.(jpg|jpeg|png|gif|webp)$/i.test(file); // extensiones válidas
+  return /\.(jpg|jpeg|png|gif|webp)$/i.test(file);
 }
 
 fs.readdirSync(basePath).forEach((category) => {
@@ -15,17 +15,14 @@ fs.readdirSync(basePath).forEach((category) => {
     const files = fs.readdirSync(categoryPath);
     files.forEach((file) => {
       if (isImage(file)) {
-        const relativePath = `proyectos/${category}/${file}`;
         output.push({
           url: "#",
-          img: relativePath
+          img: `proyectos/${category}/${file}`
         });
       }
     });
   }
 });
 
-const jsonPath = path.join(__dirname, "projects.json");
-
-fs.writeFileSync(jsonPath, JSON.stringify(output, null, 2));
+fs.writeFileSync("projects.json", JSON.stringify(output, null, 2));
 console.log(`✅ Archivo projects.json generado correctamente con ${output.length} imágenes.`);
