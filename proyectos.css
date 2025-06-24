@@ -7,7 +7,7 @@
 
 /* TIPOGRAFÍA Y CUERPO */
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   background: #fff;
   color: #111;
   font-size: 14px;
@@ -34,6 +34,7 @@ nav ul.main-menu {
 
 nav ul.main-menu > li > a {
   text-decoration: none;
+  font-family: "Courier New", Courier, monospace;
   color: #111;
   font-size: 12px;
   text-transform: uppercase;
@@ -80,7 +81,7 @@ nav ul.main-menu > li > a:hover {
 }
 
 .texto-descriptivo h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-weight: normal;

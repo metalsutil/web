@@ -7,7 +7,7 @@
 
 /* TIPOGRAFÍA Y CUERPO */
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: font-family: "Courier New", Courier, monospace;
   background: #fff;
   color: #111;
   font-size: 14px;
