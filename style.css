@@ -1,61 +1,171 @@
-/* RESET BÁSICO */
+/* ===== RESET Y BASE ===== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* TIPOGRAFÍA Y CUERPO */
 body {
-  font-family: font-family: "Courier New", Courier, monospace;
-  background: #fff;
-  color: #111;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 60px;
+    background: #fff;
+    color: #000;
+    font-family: 'Times New Roman', serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ENCABEZADO Y MENÚ */
+.wrapper {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== HEADER ===== */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  z-index: 1000;
-  padding: 1em 2em;
-  border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+    text-align: left;
 }
 
-nav ul.main-menu {
-  display: flex;
-  list-style: none;
-  gap: 2em;
+h1, h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 50;
+    letter-spacing: -1px;
 }
 
-nav ul.main-menu > li > a {
-  text-decoration: none;
-  color: #111;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease-in-out;
+h1 {
+    font-size: 2rem;
 }
 
-nav ul.main-menu > li > a:hover {
-  color: #888;
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
-/* Imágenes snake */
-.snake-img {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  z-index: 0; /* por debajo del menú */
-  transition: transform 0.1s linear;
+/* ===== CONTENIDO PRINCIPAL ===== */
+.project {
+    margin-bottom: 50px;
 }
 
-.snake-img img {
-  border-radius: 2px;
-  pointer-events: none;
-  user-select: none;
+.year {
+    color: #555;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.description, .specs, .gallery {
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+}
+
+/* ===== TABLA ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table td {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    vertical-align: top;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== GALERÍA ===== */
+.slideshow {
+    position: relative;
+    height: 400px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.02);
+}
+
+/* ===== FOOTER ===== */
+/* Footer */
+.footer-projects {
+    margin-top: 10em;
+    border-top: 1px solid #eee;
+    padding-top: 1em;
+}
+
+/* Footer fijo */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px 0;
+   
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.5rem;
+}
+
+footer nav {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #06f;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+/* ===== RESPONSIVIDAD ===== */
+@media (max-width: 600px) {
+    .wrapper {
+        padding: 15px;
+    }
+    
+    .slideshow {
+        height: 250px;
+    }
+    
+    table td {
+        display: block;
+        width: 100%;
+    }
 }

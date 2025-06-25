@@ -1,106 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arco Parlante</title>
-  <link rel="stylesheet" href="proyectos.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arco Parlante</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
 <body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="proyectos.html">← ✦</a></h1>
+        </header>
 
-  <!-- Menú superior -->
-  <header>
-    <nav>
-      <ul class="main-menu">
-        <li>
-          <a href="#">Proyectos</a>
-          <ul class="submenu">
-     
-          </ul>
-        </li>
-        <li>
-          <a href="#">Sobre mí</a>
-          <ul class="submenu">
-  
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+        <main>
+            <article class="project">
+                <h2>ARCO PARLANTE</h2>
+                <p class="year">2024</p>
 
-  <!-- Carrusel tipo gif -->
-  <section class="hero">
-    <div class="slideshow">
-      <img src="./proyectos/arcoparlante/_MG_4875.jpg" class="slide active" />
-      <img src="./proyectos/arcoparlante/_MG_4876.jpg" class="slide" />
-      <img src="./proyectos/arcoparlante/_MG_4904.jpg" class="slide" />
-      <img src="./proyectos/arcoparlante/_MG_5013.jpg" class="slide" />
-    </div>
-  </section>
+                <!-- Carrusel tipo gif -->
+                <section class="gallery">
+                    <div class="slideshow">
+                        <img src="./proyectos/arcoparlante/_MG_4875.jpg" class="slide active" />
+                        <img src="./proyectos/arcoparlante/_MG_4876.jpg" class="slide" />
+                        <img src="./proyectos/arcoparlante/_MG_4904.jpg" class="slide" />
+                        <img src="./proyectos/arcoparlante/_MG_5013.jpg" class="slide" />
+                    </div>
+                </section>
 
-  <!-- Texto -->
-  <section class="texto-descriptivo">
-    <div class="col titulo">
-      <h1>Arco Parlante</h1>
-    </div>
-    <div class="col texto">
-      <p>
-        Es un proyecto instalativo que explora la intersección entre infraestructuras ferroviarias y narrativas locales en Quinta Normal a través de arte y tecnología. La obra busca recopilar mitos urbanos sobre túeneles, trenes fantasmas, estaciones perdidas y misterios de la zona, reinterpretando creativamente estos elementos en una obra instalativa que cruce medios y oratorias en torno a los territorios de Quinta Normal.
+                <!-- Descripción -->
+                <section class="description">
+                    <h3>SOBRE ESTE PROYECTO</h3>
+                    <p>Es un proyecto instalativo que explora la intersección entre infraestructuras ferroviarias y narrativas locales en Quinta Normal a través de arte y tecnología. La obra busca recopilar mitos urbanos sobre túneles, trenes fantasmas, estaciones perdidas y misterios de la zona, reinterpretando creativamente estos elementos en una obra instalativa que cruce medios y oratorias en torno a los territorios de Quinta Normal.</p>
+                    
+                    <p>El proyecto ha sido seleccionado para el proyecto Punta Medial en colaboración con el Foro de las Artes, el Museo de Arte Contemporáneo de Quinta Normal y la Bienal de Artes Mediales, para ser desarrollado entre 2024 y 2025.</p>
+                    
+                    <p>La obra utiliza fotogrametría para generar modelos 3D que muestran secciones y extractos urbanos del barrio, que son modificados en tiempo real por relatos orales y testimonios de vecinos que habitan los sectores que conviven con el complejo ferroviario. La obra también cuenta con un sistema de recopilación para registros de voz in situ, grabando testimonios de personas que visiten la obra, a fin de generar un repositorio de relatos orales en torno a vida alrededor de la infraestructura ferroviaria.</p>
+                </section>
 
-El proyecto ha sido seleccionado para el proyecto Punta Medial en colaboración con el Foro de las Artes, el Museo de Arte Contemporáneo de Quinta Normal y la Bienal de Artes Mediales, para ser desarrollado entre 2024 y 2025
+                <!-- Ficha técnica -->
+                <section class="specs">
+                    <h3>DETALLES</h3>
+                    <table>
+                        <tr>
+                            <td>Año</td>
+                            <td>2024</td>
+                        </tr>
+                        <tr>
+                            <td>Materiales</td>
+                            <td>Estructura metálica, pantalla, audífonos con relatos, audífonos con micrófono para dejar relatos, interfaz de sonido</td>
+                        </tr>
+                        <tr>
+                            <td>Formato</td>
+                            <td>Instalación medial</td>
+                        </tr>
+                    </table>
+                </section>
 
-La obra utiliza fotogrametría para generar modelos 3D que muestran secciones y extractos urbanos del barrio, que son modificados en tiempo real por por relatos orales y testimonios de vecinos que habitan los sectores que conviven con el complejo ferroviario. La obra también cuenta con un sistema de recopilación para registros de voz in situ, grabando testimonios de personas que visiten la obra, a fin de generar un repositorio de relatos orales en torno a vida alrededor de la infraestructura ferroviaria.
-      </p>
-    </div>
-  </section>
+                <!-- Galería adicional -->
+                <section class="gallery">
+                    <h3>GALERÍA</h3>
+                    <div class="image-container">
+                        <img src="./proyectos/arcoparlante/_MG_4876.jpg" alt="Imagen 1" onclick="abrir(this.src)" />
+                        <img src="./proyectos/arcoparlante/_MG_5013.jpg" alt="Imagen 2" onclick="abrir(this.src)" />
+                        <img src="./proyectos/arcoparlante/_MG_4904.jpg" alt="Imagen 3" onclick="abrir(this.src)" />
+                        <img src="./proyectos/arcoparlante/_MG_4875.jpg" alt="Imagen 4" onclick="abrir(this.src)" />
+                    </div>
+                </section>
+            </article>
+        </main>
 
-  <!-- Ficha técnica -->
-  <section class="ficha">
-    <div class="fila">
-      <div class="col etiqueta">Año</div>
-      <div class="col valor">2024</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Materiales</div>
-      <div class="col valor">Estructura metálica, pantalla, audifonos con relatos, audifonos con microfono para dejar relatos, interfaz de sonido</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Formato</div>
-      <div class="col valor">Instalación medial</div>
-    </div>
-  </section>
+       
+   
+    <footer>
+      
+            <p>⌘ Proyecto desarrollado para el Foro de las Artes 2024 y la Bienal de Artes Mediales 2025</p>
+       
+    <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p>@sutilmetal</p>
+  </footer>
 
-  <!-- Galería -->
-  <section class="galeria">
-    <img src="./proyectos/arcoparlante/_MG_4876.jpg" alt="Imagen 1" onclick="abrir(this.src)" />
-    <img src="./proyectos/arcoparlante/_MG_5013.jpg" alt="Imagen 2" onclick="abrir(this.src)" />
-    <img src="./proyectos/arcoparlante/_MG_4904.jpg" alt="Imagen 3" onclick="abrir(this.src)" />
-    <img src="./proyectos/arcoparlante/_MG_4875.jpg" alt="Imagen 4" onclick="abrir(this.src)" />
-  </section>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+    <script>
+        // Slider automático tipo gif
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll(".slide");
+            let index = 0;
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
-  <script>
-    // Slider automático tipo gif
-    document.addEventListener("DOMContentLoaded", function () {
-      const slides = document.querySelectorAll(".slide");
-      let index = 0;
+            function showNextSlide() {
+                slides[index].classList.remove("active");
+                index = (index + 1) % slides.length;
+                slides[index].classList.add("active");
+            }
 
-      function showNextSlide() {
-        slides[index].classList.remove("active");
-        index = (index + 1) % slides.length;
-        slides[index].classList.add("active");
-      }
+            setInterval(showNextSlide, 2000); // cambia cada 2 segundos
+        });
 
-      setInterval(showNextSlide, 2000); // cambia cada 2 segundos
-    });
-
-    // Lightbox para galería
-    function abrir(src) {
-      basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
-    }
-  </script>
-
+        // Lightbox para galería
+        function abrir(src) {
+            basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+        }
+    </script>
 </body>
 </html>

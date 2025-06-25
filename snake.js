@@ -26,8 +26,8 @@ fetch("projects.json")
         const img = document.createElement("img");
         img.src = imgSrc;
 img.onload = () => {
-  const minSize = 60;   // Tamaño mínimo
-  const maxSize = 160;  // Tamaño máximo
+  const minSize = 150;   // Tamaño mínimo
+  const maxSize = 350;  // Tamaño máximo
   const base = Math.random() * (maxSize - minSize) + minSize;
 
   const ratio = img.naturalWidth / img.naturalHeight;
@@ -58,6 +58,7 @@ img.onload = () => {
         this.y += (targetY - this.y) * lerpFactor;
         this.el.style.left = `${this.x}px`;
         this.el.style.top = `${this.y}px`;
+        
       }
 
       getBoundsMargin() {
@@ -74,7 +75,7 @@ img.onload = () => {
     const startY = window.innerHeight / 2;
 
     const segments = projects.map((p, i) => {
-      const radius = 300 + Math.random() * 300;
+      const radius = 800 + Math.random() * 800;
       const angle = Math.random() * Math.PI * 2;
       return new SnakeSegment(
         p.url,

@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Al Dí</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:,">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <style>
+    /* Estilo temporal para visualización sin JS */
+    #animation-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+    }
+    
+  </style>
 </head>
 <body>
-
-  <!-- Menú superior -->
-  <header>
+  <!-- Header minimalista -->
     <nav>
-      <ul class="main-menu">
-        <li>
-          <a href="#">Proyectos</a>
-          <ul class="submenu">
-            <li><a href="arcoparlante.html">Arco Parlante</a></li>
-            <li><a href="espectro.html">Espectro Derivas</a></li>
-            <li><a href="fantasia.html">Fantasía en plástico</a></li>
-            <li><a href="silbatos.html">Tecnologías para tocar lo invisible</a></li>
-            <li><a href="deshielo.html">Deshielo sintético</a></li>
-            <li><a href="perdereltiempo.html">Perder el Tiempo</a></li>
+      <a href="proyectos.html" class="header-link">✦✧Proyectos</a><span>
 
-          </ul>
-        </li>
-        <li>
-          <a href="#">Sobre mí</a>
-          <ul class="submenu">
-            <li><a href="/about/formacion/index.html">Formación</a></li>
-            <li><a href="/about/talleres/index.html">Talleres</a></li>
-            <li><a href="/about/produccion/index.html">Producción</a></li>
-            <li><a href="/about/ponencias/index.html">Ponencias</a></li>
-          </ul>
-        </li>
-      </ul>
+      <a href="sobremi.html" class="header-link">✦✧Sobre mí</a>
     </nav>
   </header>
 
+  <!-- Contenido principal -->
+  <main>
+    <!-- Contenedor de la animación Snake -->
+    <div id="animation-container"></div>
+    
+    <!-- Espacio de contenido adicional (opcional) -->
+    <section class="content-section" style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+      <h2 style="font-family: 'IBM Plex Mono'; margin-bottom: 1rem;">Al Dí</h2>
+      <p style="margin-bottom: 1rem;">@sutilmetal</p>
+    </section>
+  </main>
+
+  <!-- Footer fijo -->
 
   <!-- Scripts -->
-  <script src="snake.js"></script>
+<!-- <script src="snake.js"></script> -->
   
+  <!-- Fallback si JavaScript no carga -->
+  <noscript>
+    <style>
+      #animation-container {
+        display: flex !important;
+      }
+    </style>
+  </noscript>
 </body>
 </html>
