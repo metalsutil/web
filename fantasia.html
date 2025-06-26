@@ -1,95 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fantasia</title>
-  <link rel="stylesheet" href="proyectos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasía en plástico</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
 <body>
+  <div class="wrapper">
+    <header>
+      <h1><a href="proyectos.html">← ✦</a></h1>
+    </header>
 
-  <!-- Menú superior -->
-  <header>
-    <nav>
-      <ul class="main-menu">
-        <li>
-          <a href="#">Proyectos</a>
-          <ul class="submenu">
-   
-          </ul>
-        </li>
-        <li>
-          <a href="#">Sobre mí</a>
-          <ul class="submenu">
- 
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+      <article class="project">
+        <h2>FANTASÍA EN PLÁSTICO</h2>
+        <p class="year">2024</p>
 
-  <!-- Carrusel tipo gif -->
-  <section class="hero">
-    <div class="slideshow">
-      <img src="./proyectos/fantasia/expo.png" class="slide active" />
-      <img src="" class="slide" />
-      <img src="" class="slide" />
-    </div>
-  </section>
+        <!-- Carrusel tipo gif -->
+        <section class="gallery">
+          <div class="slideshow">
+            <img src="./proyectos/fantasia/expo.png" class="slide active" />
+            <img src="" class="slide" />
+            <img src="" class="slide" />
+          </div>
+        </section>
 
-  <!-- Texto -->
-  <section class="texto-descriptivo">
-    <div class="col titulo">
-      <h1>Fantasía en plástico</h1>
-    </div>
-    <div class="col texto">
-      <p>
-Ficción de futuro:
+        <!-- Descripción -->
+        <section class="description">
+          <p>Ficción de futuro:</p>
+          <p>Una piedra que se fusiona con circuitería y adquiere sensibilidad fotolumínica y se convierte en una criatura de características desconocidas, pero con un origen matérico definido: mineral.</p>
+          <p>La obra busca generar interrogantes sobre las materialidades y los objetos que nos rodean, cuestionando hasta qué punto pueden considerarse "vivos", y apelando al concepto de "materia viva".</p>
+        </section>
 
-Una piedra que se fusiona con circuitería y adquiere sensibilidad fotolumínica y se convierte en una criatura de características desconocidas, pero con un origen matérico definido: mineral
+        <!-- Ficha técnica -->
+        <section class="specs">
+          <h3>DETALLES</h3>
+          <table>
+            <tr>
+              <td>Año</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>Materialidad cuerpo</td>
+              <td>Difusores de policarbonato + guías de luz de polimetilmetacrilato + filtros polarizados</td>
+            </tr>
+            <tr>
+              <td>Materialidad piel</td>
+              <td>Video realizado con VQGAN con una dataset personalizada, interpolación de imágenes de valle, piedras, circuitería y máquinas industriales</td>
+            </tr>
+            <tr>
+              <td>Materialidad alma</td>
+              <td>Cableado, alambre de cobre estañado + LDR's + servomotor + Arduino</td>
+            </tr>
+            <tr>
+              <td>Dimensiones</td>
+              <td>Medidas variables</td>
+            </tr>
+            <tr>
+              <td>Formato</td>
+              <td>Escultura medial</td>
+            </tr>
+          </table>
+        </section>
 
-La obra busca generar interrogantes sobre las materialidades y los objetos que nos rodean, cuestionando hasta qué punto pueden considerarse "vivos", y apelando al concepto de "materia viva".      </p>
-    </div>
-  </section>
+        <!-- Galería adicional -->
+        <section class="gallery">
+          <h3>GALERÍA</h3>
+          <div class="image-container">
+            <img src="./proyectos/fantasia/expo.png" alt="Imagen 1" onclick="abrir(this.src)" />
+          </div>
+        </section>
+      </article>
+    </main>
 
-  <!-- Ficha técnica -->
-  <section class="ficha">
-    <div class="fila">
-      <div class="col etiqueta">Año</div>
-      <div class="col valor">2024</div>
-    </div>
-    <div class="fila">
-    <div class="col etiqueta">Materialidad cuerpo</div>
-    <div class="col valor">Difusores de policarbonato + guías de luz de polimetilmetacrilato + filtros polarizados</div>
-    </div>
-    <div class="fila">
-    <div class="col etiqueta">Materialidad piel</div>
-    <div class="col valor">video realizado con vqgan con una data set personalizada, interpolación de imagenes de valle, piedras, circuitería y maquinas industriales</div>
-    </div>
-    <div class="fila">
-    <div class="col etiqueta">Materialidad alma</div>
-    <div class="col valor">cableado alambre e cobre estañado + LDR's + servomotor + arduino</div>
-    </div>
-    <div class="fila">
-        <div class="col etiqueta">Dimensiones</div>
-      <div class="col valor">medidas variables</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Formato</div>
-      <div class="col valor">Escultura medial</div>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <section class="galeria">
-    <img src="./proyectos/fantasia/expo.png" alt="Imagen 1" onclick="abrir(this.src)" />
-  </section>
+    <footer>
+      <p>⌘ Proyecto desarrollado como exploración escultórica y medial en 2024</p>
+      <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p><a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a></p>
+      </div>
+    </footer>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
   <script>
-    // Slider automático tipo gif
     document.addEventListener("DOMContentLoaded", function () {
       const slides = document.querySelectorAll(".slide");
       let index = 0;
@@ -100,14 +103,12 @@ La obra busca generar interrogantes sobre las materialidades y los objetos que n
         slides[index].classList.add("active");
       }
 
-      setInterval(showNextSlide, 2000); // cambia cada 2 segundos
+      setInterval(showNextSlide, 2000);
     });
 
-    // Lightbox para galería
     function abrir(src) {
       basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
     }
   </script>
-
 </body>
 </html>

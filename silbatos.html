@@ -1,107 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tecnologias</title>
-  <link rel="stylesheet" href="proyectos.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologías para tocar lo invisible</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
 <body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="proyectos.html">← ✦</a></h1>
+        </header>
 
-  <!-- Menú superior -->
-  <header>
-    <nav>
-      <ul class="main-menu">
-        <li>
-          <a href="#">Proyectos</a>
-          <ul class="submenu">
+        <main>
+            <article class="project">
+                <h2>TECNOLOGÍAS PARA TOCAR LO INVISIBLE</h2>
+                <p class="year">2024 / 2025</p>
 
-          </ul>
-        </li>
-        <li>
-          <a href="#">Sobre mí</a>
-          <ul class="submenu">
- 
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+                <!-- Carrusel tipo gif -->
+                <section class="gallery">
+                    <div class="slideshow">
+                        <img src="/proyectos/silbatos/silbatos.gif" class="slide active" />
+                    </div>
+                </section>
 
-  <!-- Carrusel tipo gif -->
-  <section class="hero">
-    <div class="slideshow">
-      <img src="/proyectos/silbatos/silbatos.gif" class="slide active" />
+                <!-- Descripción -->
+                <section class="description">
+                    <p>Es una aproximación transdisciplinar a parte de la colección de instrumentos musicales del MAPA Museo de Arte Popular Americano Tomás Lago (MAPA). Esta investigación culmina en una exposición que integra distintos niveles de interacción. Desde réplicas físicas hasta experiencias inmersivas de sonido y visuales generativas.</p>
+
+                    <p>Como miembro del equipo interdisciplinario, mi labor se enfoca en la optimización de modelos 3D, así como en la creación de interacciones visuales que conforman parte central de la experiencia inmersiva del proyecto.</p>
+
+                    <p>Para la sala inmersiva, se diseñó un dispositivo que permite a los visitantes interactuar tanto con las visualizaciones como con el sonido de los silbatos. Este dispositivo, fabricado en impresión 3D, fue conceptualizado como una representación abstracta que alude a todos los silbatos de la colección sin replicar a ninguno en particular. El dispositivo, que contiene un celular en su interior, recoge datos en tiempo real mediante su giroscopio y micrófono. Estos datos afectan tanto a la visualización como al paisaje sonoro.</p>
+                </section>
+
+                <!-- Ficha técnica -->
+                <section class="specs">
+                    <h3>DETALLES</h3>
+                    <table>
+                        <tr>
+                            <td>Año</td>
+                            <td>2024 / 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Materiales</td>
+                            <td>Fotogrametría, nube de puntos</td>
+                        </tr>
+                        <tr>
+                            <td>Formato</td>
+                            <td>Mapping, Realidad aumentada</td>
+                        </tr>
+                        <tr>
+                            <td>Exposición</td>
+                            <td>Sala MAPA en Centro Cultural Gabriela Mistral, Santiago</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- Galería adicional -->
+                <section class="gallery">
+                    <h3>GALERÍA</h3>
+                    <div class="image-container">
+                        <img src="/proyectos/silbatos/tecnologias.jpg" alt="Imagen 1" onclick="abrir(this.src)" />
+                    </div>
+                </section>
+            </article>
+        </main>
+
+        <footer>
+            <p>⌘ Proyecto desarrollado para el MAPA y la sala inmersiva GAM 2024–2025</p>
+            <div class="footer-projects">
+                <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+                <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+                <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+                <a href="sobremi.html">Docencia ✦</a>
+                <a href="sobremi.html">Residencias ✦</a>
+                <a href="sobremi.html">Ponencias</a>
+                <p><a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a></p>
+            </div>
+        </footer>
     </div>
-  </section>
 
-  <!-- Texto -->
-  <section class="texto-descriptivo">
-    <div class="col titulo">
-      <h1>Tecnologías para tocar lo Invisible</h1>
-    </div>
-    <div class="col texto">
-      <p>
-Es una aproximación transdisciplinar a parte de la colección de instrumentos musicales del MAPA Museo de Arte Popular Americano Tomás Lago (MAPA). Esta investigación culmina en una exposición que integra distintos niveles de interacción. Desde réplicas físicas hasta experiencias inmersivas de sonido y visuales generativas.
-Como miembro del equipo interdisciplinario, mi labor se enfoca en la optimización de modelos 3D, así como en la creación de interacciones visuales que conforman parte central de la experiencia inmersiva del proyecto.
-      </p>
-      
-      <p> Para la sala inmersiva, se diseñó un dispositivo que permite a los visitantes interactuar tanto con las visualizaciones como con el sonido de los silbatos. Este dispositivo, fabricado en impresión 3D, fue conceptualizado como una representación abstracta que alude a todos los silbatos de la colección sin replicar a ninguno en particular. 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll(".slide");
+            let index = 0;
 
-El dispositivo, que contiene un celular en su interior, recoge datos en tiempo real mediante su giroscopio y micrófono. Estos datos afectan tanto a la visualización como al paisaje sonoro. </p>
-    </div>
-  </section>
+            function showNextSlide() {
+                slides[index].classList.remove("active");
+                index = (index + 1) % slides.length;
+                slides[index].classList.add("active");
+            }
 
-  <!-- Ficha técnica -->
-  <section class="ficha">
-    <div class="fila">
-      <div class="col etiqueta">Año</div>
-      <div class="col valor">2024 / 2025</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Materialidad</div>
-      <div class="col valor">Fotogrametría, nube de puntos</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Formato</div>
-      <div class="col valor">Mapping, Realidad aumentada</div>
-    </div>
-     <div class="fila">
-      <div class="col etiqueta">Exposición</div>
-      <div class="col valor">Sala MAPA en Centro Cultural Gabriela Mistral, Santiago
-</div>
-    </div>
+            setInterval(showNextSlide, 2000);
+        });
 
-  </section>
-
-  <!-- Galería -->
-  <section class="galeria">
-    <img src="/proyectos/silbatos/tecnologias.jpg" alt="Imagen 1" onclick="abrir(this.src)" />
-  </section>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
-  <script>
-    // Slider automático tipo gif
-    document.addEventListener("DOMContentLoaded", function () {
-      const slides = document.querySelectorAll(".slide");
-      let index = 0;
-
-      function showNextSlide() {
-        slides[index].classList.remove("active");
-        index = (index + 1) % slides.length;
-        slides[index].classList.add("active");
-      }
-
-      setInterval(showNextSlide, 2000); // cambia cada 2 segundos
-    });
-
-    // Lightbox para galería
-    function abrir(src) {
-      basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
-    }
-  </script>
-
+        function abrir(src) {
+            basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+        }
+    </script>
 </body>
 </html>

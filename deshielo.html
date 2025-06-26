@@ -1,102 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deshielo</title>
-  <link rel="stylesheet" href="proyectos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deshielo sintético</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
 <body>
+  <div class="wrapper">
+    <header>
+      <h1><a href="proyectos.html">← ✦</a></h1>
+    </header>
 
-  <!-- Menú superior -->
-  <header>
-    <nav>
-      <ul class="main-menu">
-        <li>
-          <a href="#">Proyectos</a>
-          <ul class="submenu">
-   
-          </ul>
-        </li>
-        <li>
-          <a href="#">Sobre mí</a>
-          <ul class="submenu">
- 
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+      <article class="project">
+        <h2>DESHIELO SINTÉTICO</h2>
+        <p class="year">2023</p>
 
-  <!-- Carrusel tipo gif -->
-  <section class="hero">
-    <div class="slideshow">
-    <img src="./proyectos/deshielo/1.jpg" class="slide active" />
-    <video autoplay muted loop playsinline class="slide" style="display: none;">
-      <source src="./proyectos/deshielo/pan1.mp4" type="video/mp4" />
-    </video>
+        <!-- Carrusel tipo gif -->
+        <section class="gallery">
+          <div class="slideshow">
+            <img src="./proyectos/deshielo/1.jpg" class="slide active" />
+            <video autoplay muted loop playsinline class="slide" style="display: none;">
+              <source src="./proyectos/deshielo/pan1.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </section>
+
+        <!-- Descripción -->
+        <section class="description">
+          <p>Instalación interactiva compuesta por un instrumento digital desarrollado en Max/MSP, donde una cámara web actúa como sensor visual. El sistema mapea geometrías modeladas en plástico termoformado, traduciendo su posición en el espacio en eventos sonoros que simulan el proceso de deshielo.</p>
+          <p>Las zonas del campo visual han sido previamente asociadas a distintas capas de sonido derivadas de registros de hielo derritiéndose, generando una correspondencia entre forma, ubicación y sonoridad.</p>
+          <p>Las maquetas, elaboradas con plástico expuesto a altas temperaturas, remiten visualmente al derretimiento, pero en este caso materializan un proceso detenido. La acción principal es una espera: un tiempo suspendido donde se anticipa la transformación de los objetos. Sin embargo, al tratarse de un material no biodegradable, el deshielo nunca ocurre. La pieza trabaja esa fricción entre lo orgánico y lo sintético, entre el tiempo físico del derretimiento y el tiempo artificial de la simulación sonora.</p>
+        </section>
+
+        <!-- Ficha técnica -->
+        <section class="specs">
+          <h3>DETALLES</h3>
+          <table>
+            <tr>
+              <td>Año</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>Materialidad cuerpo</td>
+              <td>Cámara web, computador, plástico derretido</td>
+            </tr>
+            <tr>
+              <td>Materialidad alma</td>
+              <td>Programación en MaxMSP</td>
+            </tr>
+            <tr>
+              <td>Dimensiones</td>
+              <td>30x30x120 cm</td>
+            </tr>
+            <tr>
+              <td>Formato</td>
+              <td>Instalación medial</td>
+            </tr>
+          </table>
+        </section>
+
+        <!-- Vimeo -->
+        <section class="gallery">
+          <h3>VIDEO</h3>
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe 
+              src="https://player.vimeo.com/video/1089518973?autoplay=1&muted=1&loop=1&background=1"
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen 
+              style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+              title="deshielo sintético">
+            </iframe>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>⌘ Proyecto desarrollado como instalación interactiva en 2023</p>
+      <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p><a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a></p>
+      </div>
+    </footer>
   </div>
-  </section>
-
-  
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-
-  <!-- Texto -->
-  <section class="texto-descriptivo">
-    <div class="col titulo">
-      <h1>Deshielo sintético</h1>
-    </div>
-    <div class="col texto">
-      <p>
-Instalación interactiva compuesta por un instrumento digital desarrollado en Max/MSP, donde una cámara web actúa como sensor visual. El sistema mapea geometrías modeladas en plástico termoformado, traduciendo su posición en el espacio en eventos sonoros que simulan el proceso de deshielo. Las zonas del campo visual han sido previamente asociadas a distintas capas de sonido derivadas de registros de hielo derritiéndose, generando una correspondencia entre forma, ubicación y sonoridad.
-
-Las maquetas, elaboradas con plástico expuesto a altas temperaturas, remiten visualmente al derretimiento, pero en este caso materializan un proceso detenido. La acción principal es una espera: un tiempo suspendido donde se anticipa la transformación de los objetos. Sin embargo, al tratarse de un material no biodegradable, el deshielo nunca ocurre. La pieza trabaja esa fricción entre lo orgánico y lo sintético, entre el tiempo físico del derretimiento y el tiempo artificial de la simulación sonora.
-      </p>
-    </div>
-  </section>
-
-  <!-- Ficha técnica -->
-  <section class="ficha">
-    <div class="fila">
-      <div class="col etiqueta">Año</div>
-      <div class="col valor">2023</div>
-    </div>
-    <div class="fila">
-    <div class="col etiqueta">Materialidad cuerpo</div>
-    <div class="col valor">Cámara web, computador, plastico derretido</div>
-    </div>
-    <div class="fila">
-    <div class="col etiqueta">Materialidad alma</div>
-    <div class="col valor">Programación en MaxMSP</div>
-    </div>
-    <div class="fila">
-        <div class="col etiqueta">Dimensiones</div>
-      <div class="col valor">30x30x120 cm</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Formato</div>
-      <div class="col valor">Instalación Medial</div>
-    </div>
-  </section>
-
-  <!-- Vimeo -->
-  <div style="padding:56.25% 0 0 0;position:relative;">
-  <iframe 
-    src="https://player.vimeo.com/video/1089518973?autoplay=1&muted=1&loop=1&background=1"
-    frameborder="0" 
-    allow="autoplay; fullscreen; picture-in-picture" 
-    allowfullscreen 
-    style="position:absolute;top:0;left:0;width:100%;height:100%;" 
-    title="deshielo sintético">
-  </iframe>
-</div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
   <script>
-    // Slider automático tipo gif
     document.addEventListener("DOMContentLoaded", function () {
       const slides = document.querySelectorAll(".slide");
       let index = 0;
@@ -117,21 +117,18 @@ Las maquetas, elaboradas con plástico expuesto a altas temperaturas, remiten vi
         }
       }
 
-      // Inicializa el estado de las slides
       slides.forEach((slide, i) => {
         if (i !== 0) {
           slide.style.display = "none";
         }
       });
 
-      setInterval(showNextSlide, 2000); // cambia cada 2 segundos
+      setInterval(showNextSlide, 2000);
     });
 
-    // Lightbox para galería
     function abrir(src) {
       basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
     }
   </script>
-
 </body>
 </html>
