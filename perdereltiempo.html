@@ -4,84 +4,101 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perder el Tiempo</title>
-  <link rel="stylesheet" href="proyectos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
 </head>
 <body>
+  <div class="wrapper">
+    <header>
+      <h1><a href="proyectos.html">← ✦</a></h1>
+    </header>
 
-  <!-- Menú superior -->
-  <header>
-    <nav>
-      <ul class="main-menu">
-        <li>
-          <a href="#">Proyectos</a>
-          <ul class="submenu"></ul>
-        </li>
-        <li>
-          <a href="#">Sobre mí</a>
-          <ul class="submenu"></ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+      <article class="project">
+        <h2>PERDER EL TIEMPO</h2>
+        <p class="year">2023</p>
 
-  <!-- Carrusel tipo gif -->
-  <section class="hero">
-    <div class="slideshow">
-      <img src="./proyectos/espectro/IMG_3504.JPG" class="slide active" />
-      <img src="./proyectos/espectro/IMG_3514.JPG" class="slide" />
-      <img src="./proyectos/espectro/IMG_3518 2.JPG" class="slide" />
-    </div>
-  </section>
+        <!-- Carrusel tipo gif -->
+        <section class="gallery">
+          <div class="slideshow">
+            <img src="./proyectos/espectro/IMG_3504.JPG" class="slide active" />
+            <img src="./proyectos/espectro/IMG_3514.JPG" class="slide" />
+            <img src="./proyectos/espectro/IMG_3518 2.JPG" class="slide" />
+          </div>
+        </section>
 
-  <!-- Texto -->
-  <section class="texto-descriptivo">
-    <div class="col titulo">
-      <h1>Perder el Tiempo</h1>
-    </div>
-    <div class="col texto">
-      <p>
-        Habitamos un mundo en constante cambio, donde los lugares de trabajo y la cotidianidad laboral han experimentado transformaciones profundas.
-        Este proyecto se basa en la digitalización de ruinas industriales, lugares que una vez fueron el epicentro de la cotidianidad laboral.
-        Hoy, cerca de un 70% de los trabajos en Chile pertenecen al sector de servicios al cliente, donde la espacialidad laboral ha sido despojada de lugares establecidos transformándose drásticamente.
-        A través de la realidad aumentada, se pretende transformar lo registrado en criaturas tecnológicas.
-        El proyecto hace una invitación a reflexionar sobre cómo el pasado, el presente y el futuro se entrelazan en un mundo en constante cambio.
-        Como base, las transformaciones en nuestra sociedad, la naturaleza efímera de la tecnología y la capacidad de las ficciones para dar forma a imaginarios de futuros posibles.
-      </p>
-    </div>
-  </section>
+        <!-- Descripción -->
+        <section class="description">
+          <p>
+            Habitamos un mundo en constante cambio, donde los lugares de trabajo y la cotidianidad laboral han experimentado transformaciones profundas.
+            Este proyecto se basa en la digitalización de ruinas industriales, lugares que una vez fueron el epicentro de la cotidianidad laboral.
+          </p>
+          <p>
+            Hoy, cerca de un 70% de los trabajos en Chile pertenecen al sector de servicios al cliente, donde la espacialidad laboral ha sido despojada de lugares establecidos transformándose drásticamente.
+          </p>
+          <p>
+            A través de la realidad aumentada, se pretende transformar lo registrado en criaturas tecnológicas. El proyecto hace una invitación a reflexionar sobre cómo el pasado, el presente y el futuro se entrelazan en un mundo en constante cambio.
+          </p>
+          <p>
+            Como base, las transformaciones en nuestra sociedad, la naturaleza efímera de la tecnología y la capacidad de las ficciones para dar forma a imaginarios de futuros posibles.
+          </p>
+        </section>
 
-  <!-- Ficha técnica -->
-  <section class="ficha">
-    <div class="fila">
-      <div class="col etiqueta">Año</div>
-      <div class="col valor">2023</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Materialidad</div>
-      <div class="col valor">Fotogrametría, nube de puntos</div>
-    </div>
-    <div class="fila">
-      <div class="col etiqueta">Formato</div>
-      <div class="col valor">Realidad aumentada, repositorio web</div>
-    </div>
-  </section>
+        <!-- Ficha técnica -->
+        <section class="specs">
+          <h3>DETALLES</h3>
+          <table>
+            <tr>
+              <td>Año</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>Materiales</td>
+              <td>Fotogrametría, nube de puntos</td>
+            </tr>
+            <tr>
+              <td>Formato</td>
+              <td>Realidad aumentada, repositorio web</td>
+            </tr>
+          </table>
+        </section>
 
-  <!-- Galería -->
-  <section class="galeria">
-    <div class="imagenes-galeria">
-      <img src="./proyectos/chiuchiu/1.png" alt="Imagen 1" onclick="abrir(this.src)" />
-      <img src="./proyectos/chiuchiu/2.png" alt="Imagen 2" onclick="abrir(this.src)" />
-      <img src="./proyectos/chiuchiu/3.png" alt="Imagen 3" onclick="abrir(this.src)" />
-    </div>
-  </section>
+        <!-- Galería -->
+        <section class="gallery">
+          <h3>GALERÍA</h3>
+          <div class="image-container">
+            <img src="./proyectos/chiuchiu/1.png" alt="Imagen 1" onclick="abrir(this.src)" />
+            <img src="./proyectos/chiuchiu/2.png" alt="Imagen 2" onclick="abrir(this.src)" />
+            <img src="./proyectos/chiuchiu/3.png" alt="Imagen 3" onclick="abrir(this.src)" />
+          </div>
+        </section>
 
-  <!-- GIF -->
-  <section>
-    <div class="gif-container">
-      <img src="./proyectos/chiuchiu/chiuchiu.gif" class="responsive-gif" alt="Chiuchiu GIF" />
-    </div>
-  </section>
+        <!-- GIF -->
+        <section class="gallery">
+          <h3>GIF</h3>
+          <div class="gif-container">
+            <img src="./proyectos/chiuchiu/chiuchiu.gif" class="responsive-gif" alt="Chiuchiu GIF" />
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>⌘ Proyecto desarrollado en 2023 utilizando tecnologías de fotogrametría y realidad aumentada.</p>
+      <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p style="text-align: center; font-family: inherit; font-size: 0.85em; margin-top: 1em;">
+          <a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a>
+        </p>
+      </div>
+    </footer>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
@@ -105,6 +122,5 @@
       basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
     }
   </script>
-
 </body>
 </html>
