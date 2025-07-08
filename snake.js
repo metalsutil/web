@@ -1,164 +1,157 @@
+const canvas = document.createElement("canvas");
+document.getElementById("animation-container").appendChild(canvas);
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight * 0.8;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let sprites = [];
+let lastClickedSprite = null;
+let lastClickTime = 0;
+
 fetch("projects.json")
-  .then((res) => res.json())
-  .then((projects) => {
-    // Mezcla aleatoria
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+  .then(res => res.json())
+  .then(data => {
+    const filtered = [];
+    const seen = new Set();
+
+    data.forEach(item => {
+      const base = item.img.split("/").slice(-2).join("/");
+      if (!seen.has(base)) {
+        seen.add(base);
+        filtered.push(item);
       }
-    }
-    shuffleArray(projects);
-
-    class SnakeSegment {
-      constructor(url, imgSrc, x, y) {
-        this.x = x;
-        this.y = y;
-        this.width = 0;
-        this.height = 0;
-
-        this.el = document.createElement("a");
-        this.el.href = url;
-        this.el.target = "_blank";
-        this.el.className = "snake-img";
-        this.el.style.position = "absolute";
-
-        const img = document.createElement("img");
-        img.src = imgSrc;
-img.onload = () => {
-  const minSize = 150;   // Tamaño mínimo
-  const maxSize = 350;  // Tamaño máximo
-  const base = Math.random() * (maxSize - minSize) + minSize;
-
-  const ratio = img.naturalWidth / img.naturalHeight;
-
-  if (ratio > 1) {
-    img.width = base;
-    img.height = base / ratio;
-  } else {
-    img.height = base;
-    img.width = base * ratio;
-  }
-
-  this.width = img.width;
-  this.height = img.height;
-
-  // Centrado visual
-  this.el.style.marginLeft = `-${this.width / 2}px`;
-  this.el.style.marginTop = `-${this.height / 2}px`;
-};
-
-
-        this.el.appendChild(img);
-        document.body.appendChild(this.el);
-      }
-
-      update(targetX, targetY, lerpFactor = 0.01) {
-        this.x += (targetX - this.x) * lerpFactor;
-        this.y += (targetY - this.y) * lerpFactor;
-        this.el.style.left = `${this.x}px`;
-        this.el.style.top = `${this.y}px`;
-        
-      }
-
-      getBoundsMargin() {
-        return {
-          left: this.width / 2,
-          right: this.width / 2,
-          top: this.height / 2,
-          bottom: this.height / 2,
-        };
-      }
-    }
-
-    const startX = window.innerWidth / 2;
-    const startY = window.innerHeight / 2;
-
-    const segments = projects.map((p, i) => {
-      const radius = 800 + Math.random() * 800;
-      const angle = Math.random() * Math.PI * 2;
-      return new SnakeSegment(
-        p.url,
-        p.img,
-        startX + radius * Math.cos(angle),
-        startY + radius * Math.sin(angle)
-      );
     });
 
-    let head = segments[0];
-    let pos = { x: startX, y: startY };
-    let dir = { x: 1, y: 0 };
-    const speed = 2;
-    let targetAngle = Math.random() * Math.PI * 2;
-    let currentAngle = targetAngle;
+    let loaded = 0;
+    filtered.forEach(item => {
+      const img = new Image();
+      img.src = item.img;
+      img.onload = () => {
+        const minW = 80;
+        const maxW = 180;
+        const scale = (Math.random() * (maxW - minW) + minW) / img.width;
+        const w = img.width * scale;
+        const h = img.height * scale;
 
-    function randomAngleExcluding(excludeAngle) {
-      let angle;
-      do {
-        angle = Math.random() * Math.PI * 2;
-      } while (Math.abs(angle - excludeAngle) < 0.3);
-      return angle;
-    }
+        const now = Date.now();
+        const useCurve = Math.random() < 0.5;
 
-    setInterval(() => {
-      targetAngle = randomAngleExcluding(currentAngle);
-    }, 4000);
+        sprites.push({
+          img,
+          url: item.url || "#",
+          x: Math.random() * (canvas.width - w),
+          y: Math.random() * (canvas.height - h),
+          vx: (Math.random() - 0.5) * 0.7,
+          vy: (Math.random() - 0.5) * 0.7,
+          w, h,
+          angle: Math.random() * Math.PI * 2,
+          radius: 1 + Math.random() * 2,
+          speed: 0.01 + Math.random() * 0.01,
+          useCurve,
+          lastSwitch: now,
+          nextSwitch: now + 3000 + Math.random() * 4000,
+          trail: []
+        });
 
-    const margin = 40; // margen extra de separación con los bordes
-
-    function animate() {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      currentAngle += (targetAngle - currentAngle) * 0.02;
-      dir.x = Math.cos(currentAngle);
-      dir.y = Math.sin(currentAngle);
-
-      const dx = dir.x * speed;
-      const dy = dir.y * speed;
-
-      pos.x += dx;
-      pos.y += dy;
-
-      // Ajustar margen dinámicamente según tamaño del head
-      const headMargins = head.getBoundsMargin();
-
-      if (
-        pos.x < margin + headMargins.left ||
-        pos.x > width - margin - headMargins.right
-      ) {
-        currentAngle = Math.PI - currentAngle;
-        pos.x = Math.min(
-          Math.max(pos.x, margin + headMargins.left),
-          width - margin - headMargins.right
-        );
-      }
-
-      if (
-        pos.y < margin + headMargins.top ||
-        pos.y > height - margin - headMargins.bottom
-      ) {
-        currentAngle = -currentAngle;
-        pos.y = Math.min(
-          Math.max(pos.y, margin + headMargins.top),
-          height - margin - headMargins.bottom
-        );
-      }
-
-      // Actualiza posición de la cabeza
-      head.x = pos.x;
-      head.y = pos.y;
-      head.el.style.left = `${head.x}px`;
-      head.el.style.top = `${head.y}px`;
-
-      // Segmentos siguientes
-      for (let i = 1; i < segments.length; i++) {
-        const prev = segments[i - 1];
-        segments[i].update(prev.x, prev.y, 0.02);
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
+        loaded++;
+        if (loaded === filtered.length) animate();
+      };
+    });
   });
+
+function animate() {
+  const now = Date.now();
+
+  sprites.forEach(sprite => {
+    // Cambiar tipo de movimiento cada cierto tiempo
+    if (now > sprite.nextSwitch) {
+      sprite.useCurve = !sprite.useCurve;
+      sprite.lastSwitch = now;
+      sprite.nextSwitch = now + 3000 + Math.random() * 5000;
+    }
+
+    // Movimiento
+    if (sprite.useCurve) {
+      sprite.angle += sprite.speed;
+      sprite.x += Math.cos(sprite.angle) * sprite.radius;
+      sprite.y += Math.sin(sprite.angle) * sprite.radius;
+    } else {
+      sprite.x += sprite.vx;
+      sprite.y += sprite.vy;
+    }
+
+    // Rebote con margen
+    const margin = 10;
+    if (sprite.x < margin) {
+      sprite.x = margin;
+      sprite.vx *= -1;
+    } else if (sprite.x + sprite.w > canvas.width - margin) {
+      sprite.x = canvas.width - sprite.w - margin;
+      sprite.vx *= -1;
+    }
+    if (sprite.y < margin) {
+      sprite.y = margin;
+      sprite.vy *= -1;
+    } else if (sprite.y + sprite.h > canvas.height - margin) {
+      sprite.y = canvas.height - sprite.h - margin;
+      sprite.vy *= -1;
+    }
+
+    // Estela
+    sprite.trail.push({ x: sprite.x, y: sprite.y });
+    if (sprite.trail.length > 30) sprite.trail.shift();
+
+    sprite.trail.forEach((t) => {
+      ctx.drawImage(sprite.img, t.x, t.y, sprite.w, sprite.h);
+    });
+  });
+
+  // Enfoque visual
+  sprites.forEach(sprite => {
+    if (lastClickedSprite && sprite !== lastClickedSprite) {
+      ctx.globalAlpha = 0.2;
+    } else {
+      ctx.globalAlpha = 1;
+    }
+    ctx.drawImage(sprite.img, sprite.x, sprite.y, sprite.w, sprite.h);
+    ctx.globalAlpha = 1;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+// Interacción: mover en el primer clic, abrir en el segundo
+canvas.addEventListener("click", e => {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const now = Date.now();
+
+  for (let i = sprites.length - 1; i >= 0; i--) {
+    const s = sprites[i];
+    if (
+      x > s.x && x < s.x + s.w &&
+      y > s.y && y < s.y + s.h
+    ) {
+      if (lastClickedSprite === s && now - lastClickTime < 800) {
+        window.location.href = s.url;
+      } else {
+        // Teletransportar a nueva posición aleatoria
+        s.x = Math.random() * (canvas.width - s.w);
+        s.y = Math.random() * (canvas.height - s.h);
+
+        // Empujar también
+        s.vx += (Math.random() - 0.5) * 2;
+        s.vy += (Math.random() - 0.5) * 2;
+
+        lastClickedSprite = s;
+        lastClickTime = now;
+      }
+      break;
+    }
+  }
+});
