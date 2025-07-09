@@ -221,3 +221,7 @@ table tr:last-child td {
         width: 100%;
     }
 }
+
+a:visited {
+  color: green;
+}
