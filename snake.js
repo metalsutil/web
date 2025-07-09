@@ -1,10 +1,11 @@
+
 const canvas = document.createElement("canvas");
 document.getElementById("animation-container").appendChild(canvas);
 const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight * 0.8;
+  canvas.height = window.innerHeight * 1;
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
@@ -12,6 +13,9 @@ window.addEventListener("resize", resizeCanvas);
 let sprites = [];
 let lastClickedSprite = null;
 let lastClickTime = 0;
+let draggingSprite = null;
+let offsetX = 0;
+let offsetY = 0;
 
 fetch("projects.json")
   .then(res => res.json())
@@ -55,7 +59,8 @@ fetch("projects.json")
           useCurve,
           lastSwitch: now,
           nextSwitch: now + 3000 + Math.random() * 4000,
-          trail: []
+          trail: [],
+          isDragged: false
         });
 
         loaded++;
@@ -68,41 +73,39 @@ function animate() {
   const now = Date.now();
 
   sprites.forEach(sprite => {
-    // Cambiar tipo de movimiento cada cierto tiempo
-    if (now > sprite.nextSwitch) {
-      sprite.useCurve = !sprite.useCurve;
-      sprite.lastSwitch = now;
-      sprite.nextSwitch = now + 3000 + Math.random() * 5000;
+    if (!sprite.isDragged) {
+      if (now > sprite.nextSwitch) {
+        sprite.useCurve = !sprite.useCurve;
+        sprite.lastSwitch = now;
+        sprite.nextSwitch = now + 3000 + Math.random() * 5000;
+      }
+
+      if (sprite.useCurve) {
+        sprite.angle += sprite.speed;
+        sprite.x += Math.cos(sprite.angle) * sprite.radius;
+        sprite.y += Math.sin(sprite.angle) * sprite.radius;
+      } else {
+        sprite.x += sprite.vx;
+        sprite.y += sprite.vy;
+      }
+
+      const margin = 10;
+      if (sprite.x < margin) {
+        sprite.x = margin;
+        sprite.vx *= -1;
+      } else if (sprite.x + sprite.w > canvas.width - margin) {
+        sprite.x = canvas.width - sprite.w - margin;
+        sprite.vx *= -1;
+      }
+      if (sprite.y < margin) {
+        sprite.y = margin;
+        sprite.vy *= -1;
+      } else if (sprite.y + sprite.h > canvas.height - margin) {
+        sprite.y = canvas.height - sprite.h - margin;
+        sprite.vy *= -1;
+      }
     }
 
-    // Movimiento
-    if (sprite.useCurve) {
-      sprite.angle += sprite.speed;
-      sprite.x += Math.cos(sprite.angle) * sprite.radius;
-      sprite.y += Math.sin(sprite.angle) * sprite.radius;
-    } else {
-      sprite.x += sprite.vx;
-      sprite.y += sprite.vy;
-    }
-
-    // Rebote con margen
-    const margin = 10;
-    if (sprite.x < margin) {
-      sprite.x = margin;
-      sprite.vx *= -1;
-    } else if (sprite.x + sprite.w > canvas.width - margin) {
-      sprite.x = canvas.width - sprite.w - margin;
-      sprite.vx *= -1;
-    }
-    if (sprite.y < margin) {
-      sprite.y = margin;
-      sprite.vy *= -1;
-    } else if (sprite.y + sprite.h > canvas.height - margin) {
-      sprite.y = canvas.height - sprite.h - margin;
-      sprite.vy *= -1;
-    }
-
-    // Estela
     sprite.trail.push({ x: sprite.x, y: sprite.y });
     if (sprite.trail.length > 30) sprite.trail.shift();
 
@@ -111,7 +114,6 @@ function animate() {
     });
   });
 
-  // Enfoque visual
   sprites.forEach(sprite => {
     if (lastClickedSprite && sprite !== lastClickedSprite) {
       ctx.globalAlpha = 0.2;
@@ -125,11 +127,9 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-// Interacción: mover en el primer clic, abrir en el segundo
-canvas.addEventListener("click", e => {
+canvas.addEventListener("mousedown", e => {
   const x = e.offsetX;
   const y = e.offsetY;
-  const now = Date.now();
 
   for (let i = sprites.length - 1; i >= 0; i--) {
     const s = sprites[i];
@@ -137,21 +137,37 @@ canvas.addEventListener("click", e => {
       x > s.x && x < s.x + s.w &&
       y > s.y && y < s.y + s.h
     ) {
-      if (lastClickedSprite === s && now - lastClickTime < 800) {
+      draggingSprite = s;
+      s.isDragged = true;
+      offsetX = x - s.x;
+      offsetY = y - s.y;
+
+      if (lastClickedSprite === s && Date.now() - lastClickTime < 1000) {
         window.location.href = s.url;
       } else {
-        // Teletransportar a nueva posición aleatoria
-        s.x = Math.random() * (canvas.width - s.w);
-        s.y = Math.random() * (canvas.height - s.h);
-
-        // Empujar también
-        s.vx += (Math.random() - 0.5) * 2;
-        s.vy += (Math.random() - 0.5) * 2;
-
         lastClickedSprite = s;
-        lastClickTime = now;
+        lastClickTime = Date.now();
       }
-      break;
+      return;
     }
+  }
+
+  lastClickedSprite = null;
+  sprites.forEach((s) => {
+    s.isDragged = false;
+  });
+});
+
+canvas.addEventListener("mousemove", e => {
+  if (draggingSprite) {
+    draggingSprite.x = e.offsetX - offsetX;
+    draggingSprite.y = e.offsetY - offsetY;
+  }
+});
+
+canvas.addEventListener("mouseup", () => {
+  if (draggingSprite) {
+    draggingSprite.isDragged = false;
+    draggingSprite = null;
   }
 });
