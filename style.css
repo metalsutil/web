@@ -222,20 +222,25 @@ footer a:hover {
   align-items: center;
 }
 .youtube {
+  width: 100%;
   margin: 2rem 0;
 }
 
-/* Contenedor de video con relación automática si es YouTube */
+/* Contenedor que adapta altura según la proporción */
 .youtube .video-container {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding-top: 56.25%; /* proporción 16:9 por defecto */
 }
 
-/* Ajustes especiales si el iframe detecta ser vertical */
-.youtube .video-container.vertical {
-  padding-top: 177%; /* proporción 9:16 para shorts o verticales */
+/* Proporción horizontal (16:9) */
+.youtube.horizontal .video-container {
+  aspect-ratio: 16 / 9;
+}
+
+/* Proporción vertical (9:16) */
+.youtube.vertical .video-container {
+  aspect-ratio: 9 / 16;
 }
 
 .youtube iframe {
