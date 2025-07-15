@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lo incompleto</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1><a href="proyectos.html">← ✦</a></h1>
+    </header>
+
+    <main>
+      <article class="project">
+        <h2>LO INCOMPLETO</h2>
+        <p class="year">2024</p>
+
+        <!-- Carrusel tipo gif -->
+        <section class="gallery">
+          <div class="slideshow">
+            <img src="./proyectos/visuales/loincompleto.jpg" class="slide active" />
+           
+          </div>
+        </section>
+
+        <!-- Descripción -->
+        <section class="description">
+<p>Lo incompleto es una obra sonora de Matias Serrano, donde aporté en la programación en vivo de visualidades con una cámara situada en la sobre el set sonoro.
+<p>La acción consistió en mapear en tiempo real los distintos elementos sonoros a medida que eran activados por Matías, reubicándolos dentro del espacio de proyección. Este proceso permitió disponer de varios extractos diferenciados, los cuales fueron puestos en diálogo mediante una interpretación visual de sus activaciones sonoras en el espacio proyectual.</p>
+<p>Esto fue presentado durante el Foro de las Artes en la Sala Agustín Siré de la facultad de artes de la Universidad de Chile y en el festival de artes mediales </p>
+</section>
+
+        <!-- Ficha técnica -->
+        <section class="specs">
+          <h3>EQUIPO</h3>
+<table>
+<tr>
+<td>Sonido</td>
+<td>Matías Serrano</td>
+</tr>
+<tr>
+<td>Programación y mapping</td>
+<td>Almendra Díaz</td>
+</tr>
+
+        </section>
+
+        <!-- Vimeo -->
+        <section class="gallery">
+          <h3>VIDEO</h3>
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe 
+              src="https://player.vimeo.com/video/1089518973?autoplay=1&muted=1&loop=1&background=1"
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen 
+              style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+              title="deshielo sintético">
+            </iframe>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>⌘ Visualidades - Programación en vivo</p>
+      <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p style="text-align: center; font-family: inherit; font-size: 0.85em; margin-top: 1em;"></p>
+          <a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a>
+        </p>      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      function showNextSlide() {
+        slides[index].classList.remove("active");
+        if (slides[index].tagName === "VIDEO") {
+          slides[index].style.display = "none";
+          slides[index].pause && slides[index].pause();
+        } else {
+          slides[index].style.display = "none";
+        }
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+        slides[index].style.display = "";
+        if (slides[index].tagName === "VIDEO") {
+          slides[index].play && slides[index].play();
+        }
+      }
+
+      slides.forEach((slide, i) => {
+        if (i !== 0) {
+          slide.style.display = "none";
+        }
+      });
+
+      setInterval(showNextSlide, 2000);
+    });
+
+    function abrir(src) {
+      basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+    }
+  </script>
+</body>
+</html>
