@@ -221,3 +221,28 @@ footer a:hover {
   display: flex;
   align-items: center;
 }
+.youtube {
+  margin: 2rem 0;
+}
+
+/* Contenedor de video con relación automática si es YouTube */
+.youtube .video-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 56.25%; /* proporción 16:9 por defecto */
+}
+
+/* Ajustes especiales si el iframe detecta ser vertical */
+.youtube .video-container.vertical {
+  padding-top: 177%; /* proporción 9:16 para shorts o verticales */
+}
+
+.youtube iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
