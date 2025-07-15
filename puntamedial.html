@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punta Medial</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1><a href="proyectos.html">← ✦</a></h1>
+    </header>
+
+    <main>
+      <article class="project">
+        <h2>PUNTA MEDIAL</h2>
+        <p class="year">2024</p>
+
+        <!-- Carrusel tipo gif -->
+        <section class="gallery">
+          <div class="slideshow">
+            <img src="./alm/residencias/puntamedial.jpeg" class="slide active" />
+           <!-- <video autoplay muted loop playsinline class="slide" style="display: none;">
+              <source src="./proyectos/deshielo/pan1.mp4" type="video/mp4" />
+            </video> -->
+          </div>
+        </section>
+
+
+        <!-- Descripción -->
+        <section class="description">
+          <p>En 2024, fui seleccionada junto con el artista Cristobal Parra, para participar en "Punta Medial", una residencia artística impulsada por la Dirección de Creación Artística (DiCREA) de la Vicerrectoría de Investigación y Desarrollo de la Universidad de Chile. Esta iniciativa, enmarcada en la décima edición del Foro de las Artes, estaba dirigida a artistas emergentes egresados de programas de postgrado de la Universidad de Chile, con el objetivo de fomentar la creación interdisciplinaria y la experimentación en el arte contemporáneo.</p>
+          <p>La residencia se llevó a cabo en el dependencias del Museo de Arte Contemporáneo (MAC) de Quinta Normal, por vínculo con el Centro de Creación Artística e Investigación Interdisciplinaria (CeCAII) y contempló una etapa de creación de tres semanas, seguida de la apertura de procesos durante el Foro de las Artes 2024. Los resultados de la obra serán exhibidos en la 17ª Bienal de Artes Mediales en 2025.</p>
+          <p>Durante esta instancia desarrollamos Arcoparlante, un proyecto que investiga los cruces entre materialidad, memoria sonora y tecnologías digitales. A partir del trabajo con fragmentos de voz y objetos patrimoniales, proponemos una instalación sensible que explora nuevas formas de escucha y comunicación interespecies. El proyecto combina escultura, proyección, programación y síntesis de audio, y plantea una reflexión sobre el paso del tiempo y los modos diversos de habitar el palimpsesto urbano. </p>
+        </section>
+
+    
+
+        <!-- Ficha técnica -->
+        <section class="specs">
+          <h3>LINKS</h3>
+          <table>
+            <tr>
+              <td><a href="https://cchv.cl/10o-foro-de-las-artes-anuncia-nuevo-programa-de-residencias-artisticas-para-creadores-interdisciplinarios/">Sobre la convocatoria</a></td>
+            </tr>
+            <tr>
+              <td><a href="https://uchile.cl/noticias/219289/10-foro-de-las-artes-anuncia-resultados-de-programa-punta-medial">Nota de prensa</a></td>
+            </tr>
+              <tr>
+              <td><a href="https://www.instagram.com/reel/DCmp3woxXZ3/">Apertura de proceso</a></td>
+            </tr>
+             <tr>
+              <td><a href="https://www.instagram.com/reel/DBeuiDZR5An/">Registro de residencia</a></td>
+            </tr>
+          </table>
+</section>
+
+          <!-- Resultado -->
+           <section class="description">
+           <h3><a href="arcoparlante.html">ARCOPARLANTE</a></h3>
+          <div style="padding:56.25% 0 0 0;position:relative;"></div>
+        </section>
+
+        <!-- Vimeo 
+        <section class="gallery">
+          <h3>VIDEO</h3>
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe 
+              src="https://player.vimeo.com/video/1089518973?autoplay=1&muted=1&loop=1&background=1"
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen 
+              style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+              title="deshielo sintético">
+            </iframe>
+          </div>
+        </section>
+      </article>
+    </main> -->
+
+    <footer>
+      <p>⌘</p>
+      <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p style="text-align: center; font-family: inherit; font-size: 0.85em; margin-top: 1em;"></p>
+          <a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a>
+        </p>      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      function showNextSlide() {
+        slides[index].classList.remove("active");
+        if (slides[index].tagName === "VIDEO") {
+          slides[index].style.display = "none";
+          slides[index].pause && slides[index].pause();
+        } else {
+          slides[index].style.display = "none";
+        }
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+        slides[index].style.display = "";
+        if (slides[index].tagName === "VIDEO") {
+          slides[index].play && slides[index].play();
+        }
+      }
+
+      slides.forEach((slide, i) => {
+        if (i !== 0) {
+          slide.style.display = "none";
+        }
+      });
+
+      setInterval(showNextSlide, 2000);
+    });
+
+    function abrir(src) {
+      basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+    }
+  </script>
+</body>
+</html>
