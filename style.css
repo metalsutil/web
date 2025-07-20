@@ -251,3 +251,55 @@ footer a:hover {
   height: 100%;
   border: none;
 }
+/*galleria completa*/
+.full-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-bottom: 2rem;
+}
+
+.full-gallery img {
+  width: 100%;
+  height: 200px; /* Puedes ajustar este valor según lo que prefieras */
+  object-fit: cover;
+  display: block;
+}
+
+/*botones*/
+
+        .ar-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .ar-buttons a {
+            background-color: #000;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .ar-buttons a:hover {
+            background-color: #444;
+        }
+
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .qr-container img {
+            width: 120px;
+            height: auto;
+        }

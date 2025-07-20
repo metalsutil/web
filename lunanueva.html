@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Nueva</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1><a href="proyectos.html">← ✦</a></h1>
+    </header>
+
+    <main>
+        <article class="project">
+            <h2>LUNA NUEVA</h2>
+            <p class="year">2025</p>
+
+            <section class="gallery full-gallery">
+                <img src="./proyectos/ar/a.jpeg" alt="Imagen 1" onclick="abrir(this.src)" />
+                <img src="./proyectos/ar/b.jpeg" alt="Imagen 2" onclick="abrir(this.src)"/>
+                <img src="./proyectos/ar/c.jpeg" alt="Imagen 3" onclick="abrir(this.src)"/>
+                <img src="./proyectos/ar/d.jpeg" alt="Imagen 4" onclick="abrir(this.src)"/>
+                <img src="./proyectos/ar/e.jpeg" alt="Imagen 5" onclick="abrir(this.src)"/>
+            </section>
+
+            <section class="description">
+                <p>"Luna Nueva" es una constelación de experiencias en realidad aumentada que articula fragmentos poéticos, territoriales y digitales. Estas piezas fueron desarrolladas para ser activadas en dispositivos móviles y proponen encuentros afectivos con paisajes sintéticos.</p>
+            </section>
+
+            <section class="ar-buttons">
+                <a href="https://metalsutil.github.io/ARs/suave-sombra/index.html" target="_blank">Suave Sombra</a>
+                <a href="https://metalsutil.github.io/ARs/interfaz-cielo/index.html" target="_blank">Interfaz Cielo</a>
+                <a href="https://metalsutil.github.io/ARs/entro-py/index.html" target="_blank">Entro-py</a>
+            </section>
+
+            <section class="qr-container">
+                <img src="./proyectos/ar/qr-suave.png" alt="QR Suave Sombra" />
+                <img src="./proyectos/ar/qr-cielo.png" alt="QR Interfaz Cielo" />
+                <img src="./proyectos/ar/qr-entro.png" alt="QR Entro-py" />
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>⌘ Proyecto desarrollado para el Foro de las Artes 2024 y la Bienal de Artes Mediales 2025</p>
+        <div class="footer-projects">
+            <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+            <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+            <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+            <a href="sobremi.html">Docencia ✦</a>
+            <a href="sobremi.html">Residencias ✦</a>
+            <a href="sobremi.html">Ponencias</a>
+            <p style="text-align: center; font-family: inherit; font-size: 0.85em; margin-top: 1em;"></p>
+            <a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a>
+        </div>
+    </footer>
+<script>
+  function abrir(src) {
+    basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+  }
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+</div>
+</body>
+</html>

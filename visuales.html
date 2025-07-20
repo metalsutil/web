@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visuales</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Times+New+Roman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="proyectos.html">← ✦</a></h1>
+        </header>
+
+        <main>
+            <section class="gallery">
+            <img src="./proyectos/visuales/yo.png" />
+
+            <article class="project">
+                <h2>Sankatu</h2>
+                <p class="year">2022</p>
+
+                <!-- Carrusel tipo gif -->
+                <section class="gallery">
+                    <div class="slideshow">
+                    <video autoplay muted loop playsinline class="slide" style="display: none;">
+              <source src="./proyectos/visuales/fiesta.mp4" type="video/mp4" />
+            </video>
+                    </div>
+                </section>
+    
+                      <article class="project">
+                <h2></h2>
+                <p class="year">2023</p>
+
+                <!-- Carrusel tipo gif 
+                <section class="gallery">
+                    <div class="slideshow">
+                    <video autoplay muted loop playsinline class="slide" style="display: none;">
+              <source src="./proyectos/visuales/fiesta.mp4" type="video/mp4" />
+            </video>
+                    </div>
+                </section>-->
+
+      <article class="project">
+                <h2>Pliegue</h2>
+                <p class="year">2024</p>
+
+                <!-- Carrusel tipo gif 
+                <section class="gallery">
+                    <div class="slideshow">
+                    <video autoplay muted loop playsinline class="slide" style="display: none;">
+              <source src="./proyectos/visuales/fiesta.mp4" type="video/mp4" />
+            </video>
+                    </div>
+                </section>-->
+            
+
+       
+   
+    <footer>
+      
+            <p>⌘ Programación & Mapping </p>
+       
+    <div class="footer-projects">
+        <a href="proyectos.html#instalaciones">Instalaciones ✦</a>
+        <a href="proyectos.html#video-mapping">Video - Mapping ✦</a>
+        <a href="proyectos.html#realidad-aumentada">Realidad Aumentada ✦✦✦</a>
+        <a href="sobremi.html">Docencia ✦</a>
+        <a href="sobremi.html">Residencias ✦</a>
+        <a href="sobremi.html">Ponencias</a>
+        <p style="text-align: center; font-family: inherit; font-size: 0.85em; margin-top: 1em;"></p>
+          <a href="https://instagram.com/sutilmetal" target="_blank" rel="noopener">@sutilmetal</a>
+        </p>  </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox/dist/basicLightbox.min.js"></script>
+    <script>
+        // Slider automático tipo gif
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll(".slide");
+            let index = 0;
+
+            function showNextSlide() {
+                slides[index].classList.remove("active");
+                index = (index + 1) % slides.length;
+                slides[index].classList.add("active");
+            }
+
+            setInterval(showNextSlide, 2000); // cambia cada 2 segundos
+        });
+
+        // Lightbox para galería
+        function abrir(src) {
+            basicLightbox.create(`<img src="${src}" style="max-width: 90vw; max-height: 90vh;" />`).show();
+        }
+    </script>
+</body>
+</html>
