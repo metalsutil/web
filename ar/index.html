@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visor AR</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="config.js"></script>
+  <script src="comun.js"></script>
+</head>
+<body>
+  <header class="barra">
+    <h1 id="nombre-app">Visor AR</h1>
+    <div class="usuario" id="zona-usuario" hidden>
+      <span id="correo"></span>
+      <button class="enlace" id="salir">Salir</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="aviso" id="aviso-config" hidden>
+      Falta conectar la app con Supabase: completa <b>config.js</b> con la URL y la clave de tu proyecto (ver LEEME.md).
+    </div>
+
+    <!-- ACCESO -->
+    <section class="tarjeta estrecha" id="acceso" hidden>
+      <div class="pestanas">
+        <button id="tab-entrar" class="activa">Entrar</button>
+        <button id="tab-crear">Crear cuenta</button>
+      </div>
+      <form id="form-acceso">
+        <label for="email">Correo</label>
+        <input type="email" id="email" required autocomplete="email">
+        <label for="clave">Contraseña</label>
+        <input type="password" id="clave" required minlength="6" autocomplete="current-password">
+        <div class="fila">
+          <button type="submit" id="boton-acceso">Entrar</button>
+          <button type="button" class="enlace" id="olvide">Olvidé mi contraseña</button>
+        </div>
+        <p class="msg" id="msg-acceso"></p>
+      </form>
+    </section>
+
+    <!-- APP -->
+    <div id="app" hidden>
+      <section class="tarjeta">
+        <h2>Subir un modelo</h2>
+        <label class="zona-archivo" for="archivo">
+          <input type="file" id="archivo" accept=".glb,model/gltf-binary">
+          <span id="texto-archivo">Haz clic para elegir un archivo <b>.glb</b> (máximo <span id="max-mb">15</span> MB)</span>
+        </label>
+        <p class="msg" id="msg-archivo"></p>
+
+        <div class="editor" id="editor" hidden>
+          <model-viewer id="preview" camera-controls touch-action="pan-y" auto-rotate shadow-intensity="1"></model-viewer>
+          <div>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" maxlength="120">
+            <label for="autor">Autor/a</label>
+            <input type="text" id="autor" maxlength="120">
+            <label for="taller">Código de taller (opcional)</label>
+            <input type="text" id="taller" maxlength="60" placeholder="ej: finis-2026">
+
+            <label for="a-exposicion">Luz (exposición)</label>
+            <input type="range" id="a-exposicion" min="0.2" max="2.5" step="0.05" value="1">
+            <label for="a-sombra">Sombra</label>
+            <input type="range" id="a-sombra" min="0" max="2" step="0.05" value="1">
+            <label for="a-colocacion">En AR se coloca sobre</label>
+            <select id="a-colocacion">
+              <option value="floor">el piso / una mesa</option>
+              <option value="wall">una pared</option>
+            </select>
+            <div class="fila">
+              <label for="a-fondo" style="margin:0">Fondo</label>
+              <input type="color" id="a-fondo" value="#efece6">
+            </div>
+            <label class="casilla"><input type="checkbox" id="a-rotar" checked> Girar solo</label>
+            <div class="fila">
+              <button type="button" class="secundario" id="guardar-vista">Usar esta vista como inicial</button>
+              <button type="button" class="enlace" id="borrar-vista" hidden>quitar</button>
+            </div>
+            <p class="msg" id="msg-vista"></p>
+            <div class="fila">
+              <button type="button" id="publicar">Publicar y obtener link</button>
+            </div>
+            <p class="msg" id="msg-publicar"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tarjeta" id="resultado" hidden style="margin-top:22px">
+        <h2 id="resultado-titulo">Listo</h2>
+        <div class="resultado">
+          <div class="qr" id="qr"></div>
+          <div>
+            <div class="link" id="link"></div>
+            <div class="fila">
+              <button id="copiar">Copiar link</button>
+              <a class="boton secundario" id="abrir" target="_blank" rel="noopener">Abrir visor</a>
+              <button class="secundario" id="bajar-qr">Descargar QR</button>
+            </div>
+            <p class="msg" id="msg-resultado">Escanea el QR con el celular y toca “Ver en tu espacio”.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tarjeta" style="margin-top:22px">
+        <h2 id="titulo-lista">Mis modelos</h2>
+        <div class="filtros">
+          <label class="casilla" id="zona-todos" hidden style="margin:0"><input type="checkbox" id="ver-todos"> Ver los modelos de todas las personas</label>
+          <input type="text" id="filtro-taller" placeholder="Filtrar por taller">
+        </div>
+        <ul class="lista" id="lista"></ul>
+        <p class="msg" id="msg-lista"></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

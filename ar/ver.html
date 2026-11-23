@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visor AR</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="comun.js"></script>
+  <style>
+    [hidden] { display: none !important; }
+    html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #efece6; color: #1d1c1a; }
+    model-viewer { width: 100vw; height: 100vh; height: 100dvh; --poster-color: transparent; }
+    .ficha { position: fixed; left: 16px; top: 14px; right: 16px; pointer-events: none; }
+    .ficha h1 { margin: 0; font-size: 1.05rem; }
+    .ficha p { margin: 2px 0 0; font-size: .85rem; opacity: .7; }
+    #boton-ar {
+      position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
+      background: #2f5d50; color: #fff; border: none; border-radius: 999px;
+      padding: 13px 24px; font: inherit; font-size: 1rem; box-shadow: 0 4px 14px rgba(0,0,0,.18); cursor: pointer;
+    }
+    .nota { position: fixed; bottom: 22px; left: 0; right: 0; text-align: center; font-size: .85rem; opacity: .7; padding: 0 20px; }
+    .estado { position: fixed; inset: 0; background: inherit; display: grid; place-items: center; text-align: center; padding: 30px; }
+  </style>
+</head>
+<body>
+  <model-viewer id="mv" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1">
+    <button slot="ar-button" id="boton-ar">Ver en tu espacio</button>
+  </model-viewer>
+  <div class="ficha" id="ficha" hidden><h1 id="titulo"></h1><p id="autor"></p></div>
+  <p class="nota" id="nota" hidden>Abre este link en un celular para verlo en realidad aumentada.</p>
+  <div class="estado" id="estado">Cargando…</div>
+
+  <script>
+    (async () => {
+      const estado = document.getElementById("estado");
+      const id = new URLSearchParams(location.search).get("id");
+      const esUuid = /^[0-9a-f-]{36}$/i.test(id || "");
+      if (!configurado) { estado.textContent = "La app todavía no está conectada a Supabase."; return; }
+      if (!esUuid) { estado.textContent = "Este link no es válido."; return; }
+
+      const { data, error } = await sb.rpc("modelo_publico", { p_id: id });
+      if (error || !data || !data.length) { estado.textContent = "No encontramos este modelo. Puede que haya sido borrado."; return; }
+
+      const mod = data[0];
+      const mv = document.getElementById("mv");
+      document.title = mod.titulo + " · " + cfg.NOMBRE_APP;
+      document.getElementById("titulo").textContent = mod.titulo;
+      document.getElementById("autor").textContent = mod.autor || "";
+      aplicarAjustes(mv, mod.ajustes);
+      document.body.style.backgroundColor = mv.style.backgroundColor;
+      mv.alt = mod.titulo;
+      mv.src = urlPublica(mod.ruta);
+
+      mv.addEventListener("load", () => {
+        estado.hidden = true;
+        document.getElementById("ficha").hidden = false;
+        if (!mv.canActivateAR) document.getElementById("nota").hidden = false;
+      });
+      mv.addEventListener("error", () => { estado.textContent = "No se pudo cargar el modelo."; });
+    })();
+  </script>
+</body>
+</html>
