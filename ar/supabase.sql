@@ -96,6 +96,14 @@ create policy "borrar de mi carpeta" on storage.objects
   using (bucket_id = 'modelos'
          and ((storage.foldername(name))[1] = auth.uid()::text or public.soy_admin()));
 
+-- 4. Permisos para que la app pueda usar las tablas
+--    (los proyectos nuevos de Supabase no los dan automáticamente)
+grant usage on schema public to anon, authenticated;
+grant select, insert, update, delete on public.modelos to authenticated;
+grant select on public.perfiles to authenticated;
+grant execute on function public.modelo_publico(uuid) to anon, authenticated;
+grant execute on function public.soy_admin() to authenticated;
+
 -- =============================================================
 --  DESPUÉS de crear tu cuenta en la app, ejecuta esta línea
 --  (con tu correo) para quedar como administradora:
