@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visor AR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -12,8 +14,9 @@
   <script src="comun.js"></script>
 </head>
 <body>
+  <div class="cinta"><span>+++ SUBE TU OBJETO +++ OBTÉN TU LINK +++ MÍRALO EN TU ESPACIO +++ SUBE TU OBJETO +++ OBTÉN TU LINK +++ MÍRALO EN TU ESPACIO +++</span></div>
   <header class="barra">
-    <h1 id="nombre-app">Visor AR</h1>
+    <h1><span class="cursor">&gt;</span> <span id="nombre-app">Visor AR</span><span class="parpadeo">_</span></h1>
     <div class="usuario" id="zona-usuario" hidden>
       <span id="correo"></span>
       <button class="enlace" id="salir">Salir</button>
@@ -75,7 +78,7 @@
             </select>
             <div class="fila">
               <label for="a-fondo" style="margin:0">Fondo</label>
-              <input type="color" id="a-fondo" value="#efece6">
+              <input type="color" id="a-fondo" value="#000000">
             </div>
             <label class="casilla"><input type="checkbox" id="a-rotar" checked> Girar solo</label>
             <div class="fila">
@@ -118,6 +121,10 @@
       </section>
     </div>
   </main>
+  <footer class="pie">
+    <hr>
+    <p>[ <a href="https://sutilmetal.com">sutilmetal.com</a> ] &middot; hecho con model-viewer &middot; mejor visto en cualquier navegador</p>
+  </footer>
 
   <script src="app.js"></script>
 </body>
