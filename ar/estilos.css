@@ -21,6 +21,9 @@ body {
     var(--fondo);
   min-height: 100vh;
 }
+/* fondo animado de p5 */
+#fondo-nube { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+body:has(#fondo-nube) { background: transparent; }
 ::selection { background: var(--azul); color: #000; }
 a { color: var(--azul-vivo); }
 a:visited { color: #a070ff; }
@@ -46,7 +49,7 @@ header.barra .usuario { display: flex; gap: 12px; align-items: center; }
 main { max-width: 1080px; margin: 0 auto; padding: 24px 18px 30px; display: grid; gap: 22px; }
 
 .tarjeta {
-  border: 2px solid var(--azul); padding: 20px; background: #000;
+  border: 2px solid var(--azul); padding: 20px; background: rgba(0,0,0,.86);
   box-shadow: 6px 6px 0 var(--azul-oscuro);
 }
 .tarjeta h2 {
